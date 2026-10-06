@@ -31,20 +31,20 @@
     </div>
 
     <div class="tabbar" role="tablist" aria-label="Sections">
-      <button class="tab" id="tab-home" data-tab="home" role="tab" aria-selected="true" aria-controls="panel-home">home</button>
-      <button class="tab" id="tab-services" data-tab="services" role="tab" aria-selected="false" aria-controls="panel-services" tabindex="-1">services</button>
-      <button class="tab" id="tab-about" data-tab="about" role="tab" aria-selected="false" aria-controls="panel-about" tabindex="-1">about</button>
+      <button class="tab" id="tab-home" data-tab="home" role="tab" aria-selected="true" aria-controls="panel-home" data-cmd="pawnode --welcome">home</button>
+      <button class="tab" id="tab-services" data-tab="services" role="tab" aria-selected="false" aria-controls="panel-services" tabindex="-1" data-cmd="pawnode --services">services</button>
+      <button class="tab" id="tab-about" data-tab="about" role="tab" aria-selected="false" aria-controls="panel-about" tabindex="-1" data-cmd="cat about.txt">about</button>
     </div>
 
     <div class="terminal">
-      <div class="panels">
-        <section class="panel active" id="panel-home" role="tabpanel" aria-labelledby="tab-home">
-          <div class="prompt-line">
-            <span class="prompt-sym">~ $</span>
-            <span class="cmd"> pawnode --welcome</span>
-          </div>
-
-          <pre class="paw">
+      <div class="terminal-content">
+        <div class="prompt-line" data-line="top">
+          <span class="prompt-sym">~ $</span>
+          <span class="cmd"> <span class="cmd-text">pawnode --welcome</span></span>
+        </div>
+        <div class="panels">
+          <section class="panel active" id="panel-home" role="tabpanel" aria-labelledby="tab-home">
+            <pre class="paw">
 ⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣦⡀⠀⠀⠀⠀⠀⢀⣠⣤⣄⡀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⢰⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⣴⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣧⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀
@@ -62,79 +62,70 @@
 ⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠈⠛⠻⠿⠿⠟⠛⠛⠉⠉⠉⠉⠛⠿⢿⣿⣿⠿⠋⠀⠀⠀⠀⠀⠀⠀</pre>
 
-          <div class="logotype">
-            <span class="paw-part">Paw</span><span class="node-part">Node</span>
-          </div>
+            <div class="logotype">
+              <span class="paw-part">Paw</span><span class="node-part">Node</span>
+            </div>
 
-          <div class="tagline">// Begin Fuzzy Infrastructure</div>
-        </section>
+            <div class="tagline">// Begin Fuzzy Infrastructure</div>
+          </section>
 
-        <section class="panel" id="panel-services" role="tabpanel" aria-labelledby="tab-services">
-          <div class="prompt-line">
+          <section class="panel" id="panel-services" role="tabpanel" aria-labelledby="tab-services">
+            <ul class="service-list">
+              <li>
+                <span class="bullet">→</span>
+                <a href="https://got.nutted.in" target="_blank" rel="noopener">got.nutted.in</a>
+                <span class="desc">// *.got.nutted.in bluesky handle registrar</span>
+              </li>
+              <li>
+                <span class="bullet">→</span>
+                <a href="https://pterodactyl-panel.pawnode.co" target="_blank" rel="noopener">pterodactyl-panel.pawnode.co</a>
+                <span class="desc">// gameserver hosting panel</span>
+              </li>
+              <!-- <li>
+                <span class="bullet">→</span>
+                <a href="https://bottomlicense.com" target="_blank" rel="noopener">bottomlicense.com</a>
+                <span class="desc">// a pawnode-hosted site</span>
+              </li>
+              -->
+              <!--
+              <li>
+                <span class="bullet">→</span>
+                <a href="https://gaming.pawnode.co" target="_blank" rel="noopener">gaming.pawnode.co</a>
+                <span class="desc">// game server hosting &amp; panel</span>
+              </li> -->
+            </ul>
+          </section>
+
+          <section class="panel" id="panel-about" role="tabpanel" aria-labelledby="tab-about">
+            <div class="about">
+              <h2># pawnode</h2>
+              <p>
+                <span class="hl">PawNode</span> is a furry organization that builds and 
+                maintains furry-first services and infrastructure, with an emphasis on open-source,
+                privacy, and security. To better achieve this goal, <span class="hl">PawNode</span> 
+                operates it's own hardware and network infrastructure, stores it's own data and analytics,
+                and does not rely on third-party cloud providers. 
+              </p>
+              <h2># privacy</h2>
+              <p>
+                PawNode uses self-hosted Umami for
+                privacy-focused analytics, which may include anonymous page views and
+                basic technical details such as browser, device, and approximate location.
+                This data is never used for advertising or sold to third parties. We also
+                participate in CrowdSec's data exchange, as described in their
+                <a href="https://docs.crowdsec.net/docs/central_api/intro/#data-exchanged-with-the-central-api" target="_blank" rel="noopener">Central API documentation</a>.
+              </p>
+              <p>
+                Source: <a href="https://github.com/Paw-Node" target="_blank" rel="noopener">github.com/Paw-Node</a><br />
+                Questions? <a href="mailto:contact@pawnode.co">contact@pawnode.co</a>
+              </p>
+            </div>
+          </section>
+        </div>
+        <div class="prompt-line" data-line="bottom">
             <span class="prompt-sym">~ $</span>
-            <span class="cmd"> pawnode --services</span>
-          </div>
-
-          <ul class="service-list">
-            <li>
-              <span class="bullet">→</span>
-              <a href="https://got.nutted.in" target="_blank" rel="noopener">got.nutted.in</a>
-              <span class="desc">// *.got.nutted.in bluesky handle registrar</span>
-            </li>
-            <li>
-              <span class="bullet">→</span>
-              <a href="https://pterodactyl-panel.pawnode.co" target="_blank" rel="noopener">pterodactyl-panel.pawnode.co</a>
-              <span class="desc">// gameserver hosting panel</span>
-            </li>
-            <!-- <li>
-              <span class="bullet">→</span>
-              <a href="https://bottomlicense.com" target="_blank" rel="noopener">bottomlicense.com</a>
-              <span class="desc">// a pawnode-hosted site</span>
-            </li>
-            -->
-            <!--
-            <li>
-              <span class="bullet">→</span>
-              <a href="https://gaming.pawnode.co" target="_blank" rel="noopener">gaming.pawnode.co</a>
-              <span class="desc">// game server hosting &amp; panel</span>
-            </li> -->
-          </ul>
-        </section>
-
-        <section class="panel" id="panel-about" role="tabpanel" aria-labelledby="tab-about">
-          <div class="prompt-line">
-            <span class="prompt-sym">~ $</span>
-            <span class="cmd"> cat about.txt</span>
-          </div>
-
-          <div class="about">
-            <h2># pawnode</h2>
-            <p>
-              <span class="hl">PawNode</span> is a furry organization that builds and 
-              maintains furry-first services and infrastructure, with an emphasis on open-source,
-              privacy, and security. To better achieve this goal, <span class="hl">PawNode</span> 
-              operates it's own hardware and network infrastructure, stores it's own data and analytics,
-              and does not rely on third-party cloud providers. 
-            </p>
-            <h2># privacy</h2>
-            <p>
-              PawNode uses self-hosted Umami for
-              privacy-focused analytics, which may include anonymous page views and
-              basic technical details such as browser, device, and approximate location.
-              This data is never used for advertising or sold to third parties. We also
-              participate in CrowdSec's data exchange, as described in their
-              <a href="https://docs.crowdsec.net/docs/central_api/intro/#data-exchanged-with-the-central-api" target="_blank" rel="noopener">Central API documentation</a>.
-            </p>
-            <p>
-              Source: <a href="https://github.com/Paw-Node" target="_blank" rel="noopener">github.com/Paw-Node</a><br />
-              Questions? <a href="mailto:contact@pawnode.co">contact@pawnode.co</a>
-            </p>
-          </div>
-        </section>
-      </div>
-
-      <div class="bottom-prompt">
-        <span style="color: var(--glow);">~ $</span><span class="cursor"></span>
+            <span class="cmd"> <span class="cmd-text"></span><span class="cursor"></span></span>
+        </div>
       </div>
     </div>
   </div>
@@ -144,24 +135,81 @@
       const tabs = Array.from(document.querySelectorAll('.tab'));
       const names = tabs.map((tab) => tab.dataset.tab);
       const label = document.querySelector('.titlebar-label');
+      const terminalInside = document.querySelector('.terminal-content');
+      const terminalTop = document.querySelector('.prompt-line[data-line="top"]');
+      const terminalBottom = document.querySelector('.prompt-line[data-line="bottom"]');
+      const topCmdText = terminalTop.querySelector('.cmd-text');
+      const bottomCmdText = terminalBottom.querySelector('.cmd-text');
 
-      function activate(name, { focus = false, updateHash = true } = {}) {
+      const CHARS_ANIM = 500;
+      const SLIDE_DELAY = 200;
+      const SLIDE_DURATION = 500;
+
+      let isAnimating = false;
+      const delay = (ms) => new Promise((r) => setTimeout(r, ms));
+
+      async function typeText(el, text, duration) {
+        const perChar = duration / text.length;
+        for (let i = 0; i < text.length; i++) {
+          await delay(perChar);
+          el.textContent += text[i];
+        }
+      }
+
+      async function activate(name, { focus = false, updateHash = true, animate = true } = {}) {
         if (!names.includes(name)) name = 'home';
+        if (isAnimating) return;
+
+        const activeTab = tabs.find((t) => t.getAttribute('aria-selected') === 'true');
+        const targetTab = tabs.find((t) => t.dataset.tab === name);
+        const activePanel = activeTab && document.getElementById(activeTab.getAttribute('aria-controls'));
+        const targetPanel = document.getElementById(targetTab.getAttribute('aria-controls'));
+        const needsAnim = animate && activeTab !== targetTab;
 
         for (const tab of tabs) {
           const on = tab.dataset.tab === name;
           tab.setAttribute('aria-selected', String(on));
           tab.tabIndex = on ? 0 : -1;
-          document.getElementById(tab.getAttribute('aria-controls')).classList.toggle('active', on);
           if (on && focus) tab.focus();
         }
 
         label.textContent = `pawnode — ${name === 'home' ? 'zsh' : name} — 80×24`;
-
         if (updateHash) {
           const url = name === 'home' ? location.pathname + location.search : `#${name}`;
           history.replaceState(null, '', url);
         }
+
+        const activateCmd = targetTab.dataset.cmd || `pawnnode --${name}`;
+
+        if (!needsAnim) {
+          if (activePanel) activePanel.classList.remove('active');
+          targetPanel.classList.add('active');
+          topCmdText.textContent = activateCmd;
+          return;
+        }
+
+        isAnimating = true;
+        const blSize = terminalBottom.getBoundingClientRect().height;
+
+        await typeText(bottomCmdText, activateCmd, CHARS_ANIM);
+        await delay(SLIDE_DELAY);
+        terminalInside.style.transition = `translate ${SLIDE_DURATION}ms`;
+        terminalInside.style.translate = `0 calc(-100% + ${blSize}px)`;
+        await delay(SLIDE_DURATION);
+        activePanel?.classList.remove('active');
+
+        bottomCmdText.textContent = '';
+        topCmdText.textContent = activateCmd;
+        targetPanel.classList.add('active');
+
+        terminalBottom.style.transition = 'none';
+        terminalInside.style.transition = 'none';
+        terminalBottom.style.opacity = '0';
+        terminalInside.style.translate = '0 0';
+        await delay(0);
+        terminalBottom.style.transition = 'opacity 300ms';
+        terminalBottom.style.opacity = '1';
+        isAnimating = false;
       }
 
       for (const tab of tabs) {
@@ -180,7 +228,7 @@
         activate(names[next], { focus: true });
       });
 
-      const fromHash = () => activate(location.hash.slice(1), { updateHash: false });
+      const fromHash = () => activate(location.hash.slice(1), { updateHash: false, animate: false });
       window.addEventListener('hashchange', fromHash);
       fromHash();
     })();
