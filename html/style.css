@@ -141,17 +141,27 @@ body::after {
   align-items: center;
 }
 
+.panel.active {
+  opacity: 1;
+  transition: .3s opacity;
+}
+
 .panel:not(.active) {
-  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Terminal body */
 .terminal {
   padding: 32px 40px 40px;
+  overflow: hidden;
+}
+
+.terminal-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0;
+  gap: 28px;
 }
 
 /* Prompt line at top */
@@ -159,7 +169,6 @@ body::after {
   width: 100%;
   font-size: 13px;
   color: var(--dim);
-  margin-bottom: 28px;
 }
 
 .prompt-line .prompt-sym { color: var(--glow); }
