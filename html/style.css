@@ -314,6 +314,12 @@ pre.paw {
   color: var(--secondary);
 }
 
+.about .standout {
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.45);
+}
+
 .about .dim {
   color: var(--dim);
   font-size: 12px;
