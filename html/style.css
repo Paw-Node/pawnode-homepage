@@ -18,7 +18,8 @@
 }
 
 html, body {
-  height: 100%;
+  min-height: 100%;
+  min-height: 100dvh;
   background: var(--bg);
   display: flex;
   align-items: center;
@@ -281,6 +282,42 @@ pre.paw {
   .service-list .desc {
     grid-column: 2;
     margin-bottom: 12px;
+  }
+}
+
+/* Shrink the terminal on short/narrow screens so the whole window
+   fits in one viewport without scrolling. */
+@media (max-width: 600px) {
+  .terminal {
+    padding: 16px 20px 20px;
+  }
+
+  .terminal-content {
+    gap: 14px;
+  }
+
+  pre.paw {
+    font-size: clamp(8px, 2vw, 12px);
+    line-height: 1.15;
+  }
+
+  .logotype {
+    margin-top: 10px;
+    font-size: clamp(18px, 6vw, 28px);
+  }
+
+  .tagline {
+    margin-top: 6px;
+    font-size: 10px;
+  }
+
+  /* On narrow screens the about panel's text wraps onto many more
+     lines than on desktop, which made every tab (including home)
+     match its height via the grid-stacking trick above. Let inactive
+     panels drop out of the grid here so each tab sizes to its own
+     content instead of the tallest one. */
+  .panel:not(.active) {
+    display: none;
   }
 }
 
